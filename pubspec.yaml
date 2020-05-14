@@ -46,10 +46,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
     - blog/
-  fonts:
-    - family: Sriracha
-      fonts:
-        - asset: assets/fonts/Sriracha-Regular.ttf
 
