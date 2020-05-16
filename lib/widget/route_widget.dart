@@ -28,7 +28,7 @@ class _RouteWidget extends State<RouteWidget> {
         Map<String, String> args = Uri.splitQueryString(paths[1]);
         if (path == FrontConfig.routeBlogPage) {
           return MaterialPageRoute(
-            settings: RouteSettings(name: settings.name),
+            settings: RouteSettings(name: settings.name, arguments: args),
             builder: (context) {
               return BlogPage(args);
             }
