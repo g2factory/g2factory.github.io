@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:g2factory_page/config/front_config.dart';
+import 'package:g2factory_page/page/error_pages.dart';
 import 'package:g2factory_page/repository/blog_repository.dart';
 import 'package:g2factory_page/widget/base_widget.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BlogPage extends StatefulWidget {
+  Map<String, String> args;
+  BlogPage(this.args);
   @override
-  _BlogPage createState() => _BlogPage();
+  _BlogPage createState() => _BlogPage(args);
 }
 
 class _BlogPage extends State<BlogPage> {
+  Map<String, String> args;
+  _BlogPage(this.args);
   @override
   Widget build(BuildContext context) {
-    final Map<String, String> args = ModalRoute.of(context).settings.arguments;
     if (args == null || args["blog_id"] == null) {
-      return BaseWidget(
-        body: Center(
-          child: Text(
-            "ページが見つかりません",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: FrontConfig.mainColor.shade50,
-            ),
-          ),
-        ),
-      );
+      return ErrorPages.pageNotFoundPage();
     }
     BlogRepository _blog = BlogRepository(context);
     return BaseWidget(

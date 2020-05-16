@@ -10,7 +10,9 @@ class BlogHeadlineWidget extends StatelessWidget {
     return Center(
       child: GestureDetector(
         onTapUp: (_) {
-          Navigator.of(context).pushNamed(FrontConfig.routeBlogPage, arguments: {"blog_id": BlogRepository.getBlogId(blog)});
+          Navigator.of(context).pushNamed(
+            '${FrontConfig.routeBlogPage}?blog_id=${BlogRepository.getBlogId(blog)}'
+          );
         },
         child: Container(
           constraints: FrontConfig.pageContentSize,
