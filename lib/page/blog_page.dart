@@ -3,6 +3,7 @@ import 'package:g2factory_page/config/front_config.dart';
 import 'package:g2factory_page/repository/blog_repository.dart';
 import 'package:g2factory_page/widget/base_widget.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BlogPage extends StatefulWidget {
   @override
@@ -46,7 +47,10 @@ class _BlogPage extends State<BlogPage> {
                   margin: const EdgeInsets.symmetric(vertical: 16.0),
                   padding: const EdgeInsets.all(16.0),
                   child: MarkdownBody(
-                    data: snapshot.data
+                    data: snapshot.data,
+                    onTapLink: (href) {
+                      launch(href);
+                    },
                   ),
                 ),
               ),
