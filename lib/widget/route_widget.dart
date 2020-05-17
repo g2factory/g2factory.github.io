@@ -15,7 +15,6 @@ class _RouteWidget extends State<RouteWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: FrontConfig.routeRootPage,
       routes: {
         FrontConfig.routeRootPage: (context) => MemberPage(),
         FrontConfig.routeMemberPage: (context) => MemberPage(),
@@ -26,19 +25,22 @@ class _RouteWidget extends State<RouteWidget> {
         List<String> paths = settings.name.split('?');
         String path = paths[0];
         Map<String, String> args = Uri.splitQueryString(paths[1]);
-        if (path == FrontConfig.routeBlogPage) {
-          return MaterialPageRoute(
-            settings: RouteSettings(name: settings.name, arguments: args),
-            builder: (context) {
-              return BlogPage(args);
-            }
-          );
-        } else {
-          return MaterialPageRoute(
-            builder: (context) {
-              return ErrorPages.pageNotFoundPage();
-            }
-          );
+        switch(path) {
+          case FrontConfig.routeBlogPage: {
+            return MaterialPageRoute(
+              settings: RouteSettings(name: settings.name, arguments: args),
+              builder: (context) {
+                return BlogPage(args);
+              }
+            );
+          }
+          default: {
+            return MaterialPageRoute(
+              builder: (context) {
+                return ErrorPages.pageNotFoundPage();
+              }
+            );
+          }
         }
       },
     );
