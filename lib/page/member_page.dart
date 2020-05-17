@@ -33,11 +33,7 @@ class _MemberPage extends State<MemberPage> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    ...memberCard()
-                  ]
-                ),
+                child: Column(children: [...memberCard()]),
               ),
             ),
           ],

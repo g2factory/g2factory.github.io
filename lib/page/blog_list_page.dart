@@ -42,7 +42,9 @@ class _BlogListPage extends State<BlogListPage> {
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 itemBuilder: (BuildContext context, int index) {
                   if (index == _itemList.length && _canLoad) {
-                    _blog.loadBlogHeadlineList(offset: _itemList.length).then((addItemList) {
+                    _blog
+                        .loadBlogHeadlineList(offset: _itemList.length)
+                        .then((addItemList) {
                       _canLoad = addItemList.length > 0;
                       setState(() {
                         _itemList.addAll(addItemList);

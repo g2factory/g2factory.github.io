@@ -25,32 +25,31 @@ class _BlogPage extends State<BlogPage> {
     return BaseWidget(
       body: Center(
         child: FutureBuilder(
-          future: _blog.loadBlog(args["blog_id"]),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (!snapshot.hasData) return CircularProgressIndicator();
-            if (snapshot.hasError) return Text('再度読み込みをしてください');
-            return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FrontConfig.mainColor.shade50,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  constraints: FrontConfig.pageContentSize,
-                  margin: const EdgeInsets.symmetric(vertical: 16.0),
+            future: _blog.loadBlog(args["blog_id"]),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (!snapshot.hasData) return CircularProgressIndicator();
+              if (snapshot.hasError) return Text('再度読み込みをしてください');
+              return SingleChildScrollView(
+                child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: MarkdownBody(
-                    data: snapshot.data,
-                    onTapLink: (href) {
-                      launch(href);
-                    },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: FrontConfig.mainColor.shade50,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    constraints: FrontConfig.pageContentSize,
+                    margin: const EdgeInsets.symmetric(vertical: 16.0),
+                    padding: const EdgeInsets.all(16.0),
+                    child: MarkdownBody(
+                      data: snapshot.data,
+                      onTapLink: (href) {
+                        launch(href);
+                      },
+                    ),
                   ),
                 ),
-              ),
-            );
-          }
-        ),
+              );
+            }),
       ),
     );
   }

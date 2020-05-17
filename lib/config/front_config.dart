@@ -8,7 +8,8 @@ class FrontConfig {
   static const MaterialAccentColor accentColor = Colors.tealAccent;
   static const Color logoMainColor = Color(0xFFF48FB1);
   static const Color logoSubColor = Colors.white;
-  static const BoxConstraints pageContentSize = BoxConstraints.tightFor(width: 640.0);
+  static const BoxConstraints pageContentSize =
+      BoxConstraints.tightFor(width: 640.0);
 
   static const String routeRootPage = '/';
   static const String routeMemberPage = '/member';

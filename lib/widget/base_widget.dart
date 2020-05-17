@@ -6,7 +6,9 @@ import 'package:url_launcher/url_launcher.dart';
 class BaseWidget extends StatelessWidget {
   final Widget body;
 
-  BaseWidget({Key key, this.body}) : assert(body != null), super(key: key);
+  BaseWidget({Key key, this.body})
+      : assert(body != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,41 +18,39 @@ class BaseWidget extends StatelessWidget {
         title: LogoWidget(),
         actions: <Widget>[
           FlatButton(
-            child: Text(
-              'めんばー',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: FrontConfig.mainColor.shade50,
+              child: Text(
+                'めんばー',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: FrontConfig.mainColor.shade50,
+                ),
               ),
-            ),
-            onPressed: () async {
-              Navigator.of(context).pushNamed(FrontConfig.routeMemberPage);
-            }
-          ),
+              onPressed: () async {
+                Navigator.of(context).pushNamed(FrontConfig.routeMemberPage);
+              }),
           FlatButton(
-            child: Text(
-              'ぶろぐ',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: FrontConfig.mainColor.shade50,
+              child: Text(
+                'ぶろぐ',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: FrontConfig.mainColor.shade50,
+                ),
               ),
-            ),
-            onPressed: () async {
-              Navigator.of(context).pushNamed(FrontConfig.routeBlogListPage);
-            }
-          ),
+              onPressed: () async {
+                Navigator.of(context).pushNamed(FrontConfig.routeBlogListPage);
+              }),
           FlatButton(
-            child: Text(
-              'ぎっとはぶ',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: FrontConfig.mainColor.shade50,
+              child: Text(
+                'ぎっとはぶ',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: FrontConfig.mainColor.shade50,
+                ),
               ),
-            ),
-            onPressed: () async {
-              await launch('https://github.com/g2factory/g2factory.github.io');
-            }
-          ),
+              onPressed: () async {
+                await launch(
+                    'https://github.com/g2factory/g2factory.github.io');
+              }),
         ],
       ),
       body: body,

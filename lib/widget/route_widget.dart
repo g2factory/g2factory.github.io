@@ -25,22 +25,21 @@ class _RouteWidget extends State<RouteWidget> {
         List<String> paths = settings.name.split('?');
         String path = paths[0];
         Map<String, String> args = Uri.splitQueryString(paths[1]);
-        switch(path) {
-          case FrontConfig.routeBlogPage: {
-            return MaterialPageRoute(
-              settings: RouteSettings(name: settings.name, arguments: args),
-              builder: (context) {
-                return BlogPage(args);
-              }
-            );
-          }
-          default: {
-            return MaterialPageRoute(
-              builder: (context) {
+        switch (path) {
+          case FrontConfig.routeBlogPage:
+            {
+              return MaterialPageRoute(
+                  settings: RouteSettings(name: settings.name, arguments: args),
+                  builder: (context) {
+                    return BlogPage(args);
+                  });
+            }
+          default:
+            {
+              return MaterialPageRoute(builder: (context) {
                 return ErrorPages.pageNotFoundPage();
-              }
-            );
-          }
+              });
+            }
         }
       },
     );

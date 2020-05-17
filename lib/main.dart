@@ -19,4 +19,3 @@ class G2FactoryHomePage extends StatelessWidget {
     );
   }
 }
-
