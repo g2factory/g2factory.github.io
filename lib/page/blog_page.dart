@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:g2factory_page/config/front_config.dart';
-import 'package:g2factory_page/page/error_pages.dart';
+import 'package:g2factory_page/widget/error_widgets.dart';
 import 'package:g2factory_page/repository/blog_repository.dart';
 import 'package:g2factory_page/widget/base_widget.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BlogPage extends StatefulWidget {
-  Map<String, String> args;
+  final Map<String, String> args;
   BlogPage(this.args);
   @override
   _BlogPage createState() => _BlogPage(args);
@@ -27,8 +27,8 @@ class _BlogPage extends State<BlogPage> {
         child: FutureBuilder(
             future: _blog.loadBlog(args["blog_id"]),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.hasError) return ErrorPages.pageNotFoundPage();
               if (!snapshot.hasData) return CircularProgressIndicator();
-              if (snapshot.hasError) return Text('再度読み込みをしてください');
               return SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),

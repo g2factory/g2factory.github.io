@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:g2factory_page/config/front_config.dart';
 import 'package:g2factory_page/page/blog_list_page.dart';
 import 'package:g2factory_page/page/blog_page.dart';
-import 'package:g2factory_page/page/error_pages.dart';
+import 'package:g2factory_page/widget/base_widget.dart';
+import 'package:g2factory_page/widget/error_widgets.dart';
 import 'package:g2factory_page/page/member_page.dart';
 
 void main() {
@@ -39,7 +40,7 @@ class G2FactoryHomePage extends StatelessWidget {
           default:
             {
               return MaterialPageRoute(builder: (context) {
-                return ErrorPages.pageNotFoundPage();
+                return BaseWidget(body: ErrorPages.pageNotFoundPage());
               });
             }
         }

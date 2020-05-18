@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:g2factory_page/page/blog_list_page.dart';
-import 'package:g2factory_page/page/member_page.dart';
 
 class FrontConfig {
   static const String companyName = 'g2factory';
