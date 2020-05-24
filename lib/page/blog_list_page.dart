@@ -24,7 +24,7 @@ class _BlogListPage extends State<BlogListPage> {
           Center(
             child: Container(
               margin: const EdgeInsets.only(top: 16.0),
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.all(16.0),
               constraints: FrontConfig.pageContentSize,
               child: Text(
                 'ぶろぐ',

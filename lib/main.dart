@@ -14,6 +14,7 @@ class G2FactoryHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: FrontConfig.companyName,
       theme: ThemeData(
         primarySwatch: FrontConfig.mainColor,

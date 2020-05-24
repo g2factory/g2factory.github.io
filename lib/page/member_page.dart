@@ -20,7 +20,7 @@ class _MemberPage extends State<MemberPage> {
           children: [
             Container(
               margin: const EdgeInsets.only(top: 16.0),
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.all(16.0),
               constraints: FrontConfig.pageContentSize,
               child: Text(
                 'めんばー',
@@ -33,7 +33,7 @@ class _MemberPage extends State<MemberPage> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                child: Column(children: [...memberCard()]),
+                child: Column(children: [...memberCard(), Container(padding: const EdgeInsets.all(16.0))]),
               ),
             ),
           ],
