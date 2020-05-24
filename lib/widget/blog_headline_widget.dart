@@ -27,11 +27,13 @@ class BlogHeadlineWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                '${blog["headline"]}',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: FrontConfig.mainColor.shade50,
+              Flexible(
+                child: Text(
+                  '${blog["headline"]}',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: FrontConfig.mainColor.shade50,
+                  ),
                 ),
               ),
               Text(

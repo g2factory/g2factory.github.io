@@ -7,7 +7,8 @@ class FrontConfig {
   static const Color logoMainColor = Color(0xFFF48FB1);
   static const Color logoSubColor = Colors.white;
   static const BoxConstraints pageContentSize =
-      BoxConstraints.tightFor(width: 640.0);
+      BoxConstraints.tightFor(width: 940.0);
+  static const double responsiveWidth = 380.0;
 
   static const String routeRootPage = '/';
   static const String routeMemberPage = '/member';

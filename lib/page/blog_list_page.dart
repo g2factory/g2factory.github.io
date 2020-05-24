@@ -38,26 +38,29 @@ class _BlogListPage extends State<BlogListPage> {
           ),
           Expanded(
             child: Center(
-              child: ListView.builder(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                itemBuilder: (BuildContext context, int index) {
-                  if (index == _itemList.length && _canLoad) {
-                    _blog
-                        .loadBlogHeadlineList(offset: _itemList.length)
-                        .then((addItemList) {
-                      _canLoad = addItemList.length > 0;
-                      setState(() {
-                        _itemList.addAll(addItemList);
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListView.builder(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  itemBuilder: (BuildContext context, int index) {
+                    if (index == _itemList.length && _canLoad) {
+                      _blog
+                          .loadBlogHeadlineList(offset: _itemList.length)
+                          .then((addItemList) {
+                        _canLoad = addItemList.length > 0;
+                        setState(() {
+                          _itemList.addAll(addItemList);
+                        });
                       });
-                    });
-                    return Center(
-                      child: const CircularProgressIndicator(),
-                    );
-                  } else if (index >= _itemList.length) {
-                    return null;
-                  }
-                  return BlogHeadlineWidget(blog: _itemList[index]);
-                },
+                      return Center(
+                        child: const CircularProgressIndicator(),
+                      );
+                    } else if (index >= _itemList.length) {
+                      return null;
+                    }
+                    return BlogHeadlineWidget(blog: _itemList[index]);
+                  },
+                ),
               ),
             ),
           ),
