@@ -27,12 +27,8 @@ class MemberDetailWidget extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min, children: profileWidget()),
               FlatButton(
                   onPressed: () async {
-                    // ホームページからのお問い合わせ
-                    const String subject =
-                        '%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%8B%E3%82%89%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B';
-                    // お名前:\n要件:\nご連絡方法:
-                    const String body =
-                        '%E3%81%8A%E5%90%8D%E5%89%8D%3A%5Cn%E8%A6%81%E4%BB%B6%3A%5Cn%E3%81%94%E9%80%A3%E7%B5%A1%E6%96%B9%E6%B3%95%3A';
+                    String subject = Uri.encodeFull('ホームページからのお問い合わせ');
+                    String body = Uri.encodeFull('''お名前:\n要件:\nご連絡方法''');
                     String uri =
                         'mailto:${member.value['mail']}?subject=$subject&body=$body';
                     await launch(uri);
