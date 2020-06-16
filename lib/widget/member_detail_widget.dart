@@ -25,7 +25,9 @@ class MemberDetailWidget extends StatelessWidget {
               else
                 Column(
                     mainAxisSize: MainAxisSize.min, children: profileWidget()),
-              FlatButton(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: FlatButton(
                   onPressed: () async {
                     String subject = Uri.encodeFull('ホームページからのお問い合わせ');
                     String body = Uri.encodeFull('''お名前:\n要件:\nご連絡方法''');
@@ -50,6 +52,7 @@ class MemberDetailWidget extends StatelessWidget {
                     ],
                   ),
                   color: FrontConfig.mainColor.shade300),
+              ),
             ],
           ),
         ),
