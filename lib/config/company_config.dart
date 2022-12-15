@@ -6,7 +6,8 @@ class CompanyConfig {
       'mail': 'ohira@g2factory.net',
       'icon': 'images/ohira/ohira03.png',
       'skill': '簡単なホームページ制作/運営\nWebアプリ\nAndroid/iOSアプリ\n'
-          'AWSインフラ構築\n分析基盤構築\ndocker化'
+          'AWSインフラ構築\n分析基盤構築\ndocker化',
+      'achieve': '<a href="https://www.chusenkun.page/">勝手に抽選くん</a>'
     }),
     MapEntry(
       'fujii',
